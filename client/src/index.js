@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+
+import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
+// core styles
+import "./scss/volt.scss";
 
-// index.js
+// vendor styles
+import "@fortawesome/fontawesome-free/css/all.css";
+import "react-datetime/css/react-datetime.css";
+
+import HomePage from "./pages/HomePage";
+import ScrollToTop from "./components/ScrollToTop";
+
 ReactDOM.render(
-  <BrowserRouter>
-  <App/>
-</BrowserRouter>,
-document.getElementById('root')
+  <Router>
+    <ScrollToTop />
+    <HomePage />
+  </Router>,
+  document.getElementById("root")
 );
-
-  
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

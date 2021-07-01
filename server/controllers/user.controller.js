@@ -1,11 +1,30 @@
 
 
 const User = require('../models/user.model');
+const secret = require('../config').jwtSecret;
+const jwt = require('jsonwebtoken');
 
 exports.getAll = function (req, res) {
     User.find({}, (err, result) => {
         if (err) return res.json({ response: 'Error' });
         return res.json(result);
+    });
+};
+
+exports.login = function (req, res) {
+
+    if (req.body.email == null) return res.json({ response: 'Error' });
+
+    User.findOne({ email: req.body.email.toLowerCase() }, (err, result) => {
+        if (err) return res.json({ response: 'Error' });
+        if ((result == null) || (result.password != req.body.password))
+            return res.json({ response: 'Error', msg: 'Incorrect username or password' });
+        result = result.toJSON();
+        const token = jwt.sign({ email: result.email }, secret);
+        result.token = token;
+        delete result.password;
+        return res.json({ response: 'Success', msg: 'Login successful', data: result });
+
     });
 };
 
