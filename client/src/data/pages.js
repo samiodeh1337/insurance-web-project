@@ -3,7 +3,7 @@ import OverviewImg from "../assets/img/pages/overview.jpg";
 import TransactionsImg from "../assets/img/pages/transactions.jpg";
 import SettingsImg from "../assets/img/pages/settings.jpg";
 import SignInImg from "../assets/img/pages/sign-in.jpg";
-import SignUpImg from "../assets/img/pages/sign-up.jpg";
+import InsuranceImg from "../assets/img/pages/new-insurance.jpg";
 import LockImg from "../assets/img/pages/lock.jpg";
 import ForgotPasswordImg from "../assets/img/pages/forgot-password.jpg";
 import ResetPasswordImg from "../assets/img/pages/reset-password.jpg";
@@ -40,9 +40,9 @@ export default [
     },
     {
         "id": 5,
-        "name": "Sign Up",
-        "image": SignUpImg,
-        "link": Routes.Signup.path
+        "name": "InsuranceImg",
+        "image": InsuranceImg,
+        "link": Routes.new_insurance.path
     },
     {
         "id": 6,

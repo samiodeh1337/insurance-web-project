@@ -4,7 +4,7 @@ export const Routes = {
     DashboardOverview: { path: "/" },
 
     Signin: { path: "/sign-in" },
-    Signup: { path: "/new_insurance" },
+    new_insurance: { path: "/new_insurance" },
 
     NotFound: { path: "/404" },
 

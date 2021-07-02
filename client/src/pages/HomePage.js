@@ -8,7 +8,7 @@ import DashboardOverview from "./dashboard/DashboardOverview";
 
 import BootstrapTables from "./tables/BootstrapTables";
 import Signin from "./Auth/Signin";
-import Signup from "./Auth/Signup";
+import new_insurance from "./Auth/New_insurance";
 
 import NotFoundPage from "./Auth/NotFound";
 
@@ -90,10 +90,8 @@ export default () => (
   <Switch>
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
-    <RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
-
+    <RouteWithLoader exact path={Routes.new_insurance.path} component={new_insurance} />
     <RouteWithLoader exact path={Routes.NotFound.path} component={NotFoundPage} />
-
 
     {/* pages */}
 
