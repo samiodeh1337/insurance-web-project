@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import "./scss/volt.scss";
+import "@fortawesome/fontawesome-free/css/all.css";
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Signin from './pages/Signin';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Signin />
   </React.StrictMode>,
   document.getElementById('root')
 );
