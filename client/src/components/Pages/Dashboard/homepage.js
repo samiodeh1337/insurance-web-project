@@ -4,20 +4,22 @@ import Table from '../Parts/Table/Table'
 import Chart from '../Parts/Chart/PieChart'
 import './Dashboard.css'
 
-function homepage(props) {
+class HomePage extends Component {
 
-    return (
-        <div className="container" style={{ marginTop: '10%' }}>
-            <div className="row container-fluid">
+    render() {
+        return (
+            <div className="container" style={{ marginTop: '10%' }}>
+                <div className="row container-fluid">
 
-                <SideBar className="col"></SideBar>
-                <Table className="col tableStyle"></Table>
-                <Chart className="col" ></Chart>
+                    <SideBar className="col"></SideBar>
+                    <Table className="col tableStyle"></Table>
+                    <Chart className="col" ></Chart>
+                </div>
             </div>
-        </div>
 
-    )
+        )
+    }
 }
 
 
-export default homepage
+export default HomePage
