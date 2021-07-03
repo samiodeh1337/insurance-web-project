@@ -1,0 +1,12 @@
+.dIYCww {
+    background: #000;
+    color: #fff;
+    height: 100%;
+    width: 270px;
+    min-width: 270px;
+    text-align: left;
+    -webkit-transition: width,left,right,0.3s;
+    transition: width,left,right,0.3s;
+    position: relative;
+    z-index: 1009;
+}
