@@ -6,7 +6,6 @@ import logo from './logo.svg';
 import './App.css';
 import Auth from './components/Pages/Auth/Auth';
 import Insurance from './components/Pages/insurance/Insurance';
-import homepage from './components/Pages/dashboard/homepage';
 
 
 function App() {
