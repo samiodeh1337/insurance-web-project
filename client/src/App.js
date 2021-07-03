@@ -10,8 +10,6 @@ import homepage from './components/Pages/dashboard/homepage';
 
 
 function App() {
-
-
   return (
     <div className="App">
       <Switch>
