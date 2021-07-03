@@ -9,8 +9,10 @@ function homepage(props) {
     return (
         <div className="container" style={{ marginTop: '10%' }}>
             <div className="row container-fluid">
+                <SideBar></SideBar>
+                <Table></Table>
+                <Chart></Chart>
 
-                <p>jjjjj</p>
             </div>
         </div>
 
