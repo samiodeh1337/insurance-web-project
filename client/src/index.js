@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-import "./scss/volt.scss";
-import "@fortawesome/fontawesome-free/css/all.css";
-
+// import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Signin from './pages/Signin';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+
+// index.js
 ReactDOM.render(
-  <React.StrictMode>
-    <Signin />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+  <App/>
+</BrowserRouter>,
+document.getElementById('root')
 );
+
+  
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
