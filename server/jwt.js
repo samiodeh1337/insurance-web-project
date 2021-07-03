@@ -8,6 +8,7 @@ function jwt() {
             // public routes that don't require authentication
             '/favicon.ico',
             '/api/users/login',
+            '/api/insurance/new',
         ]
     });
 }

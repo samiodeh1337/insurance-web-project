@@ -17,7 +17,9 @@ app.use(jwt());
 app.use(errorHandler);
 
 const UserRoute = require('./routes/user.route');
+const insuranceRoute = require('./routes/insurance.route');
 app.use('/api/users', UserRoute);
+app.use('/api/insurance', insuranceRoute);
 
 mongoose.connect(mongooseUrl, { dbName: "insurance", useCreateIndex: true, useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true }).then(() => {
     console.log("DB connected");

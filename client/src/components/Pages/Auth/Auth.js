@@ -1,6 +1,8 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup, Modal } from '@themesberg/react-bootstrap';
 import cookie from 'react-cookies'
+import { Link, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 function Auth(props) {
 
@@ -8,30 +10,76 @@ function Auth(props) {
 
     const [showDefault, setShowDefault] = useState(false);
     const [message, setMessage] = useState('Error');
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const [CheckBox, setCheckBox] = useState('Off');
+    const history = useHistory();
 
+
+
+    useEffect(() => {
+        let isLoggedIn = false;
+        let token = cookie.load('token')
+        token == undefined ? isLoggedIn = false : isLoggedIn = true;
+        if (isLoggedIn == true) {
+            history.push("/");
+        }
+    }, []);
     const handleClose = () => setShowDefault(false);
 
-    const handleSubmit = async e => {
 
-        setShowDefault(true)
-        /*e.preventDefault();
-        const response = await fetch('/Auth/login', {
+    const setCheckBoxHandler = () => {
+        CheckBox == 'Off' ? setCheckBox('On') : setCheckBox('Off');
+    };
+    const Handleclicklogin = () => {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        if (!pattern.test(Email)) {
+            setMessage('Email is not valid!')
+            setShowDefault(true)
+            return;
+        } else if (Password === '' || Password.length < 4) {
+            setMessage('Password is not valid!')
+            setShowDefault(true)
+            return;
+        }
+
+        fetch('http://localhost:5000/api/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ password: this.state.password, email: this.state.email, name: this.state.name }),
-        });
-        const body = await response.text();
-        this.setState({ responseToPost: body });*/
-    };
+            body: JSON.stringify({ email: Email, password: Password })
+        }).then(r => r.json())
+            .then(r => {
+                console.log(r);
+                if (r.response == "Success") {
+                    if (CheckBox == "On") {
+                        cookie.save('token', r.data.token,
+                            {
+                                path: '/',
+                                maxAge: 60 * 60 * 24 * 30,
+                            }
+                        );
+                    } else {
+                        cookie.save('token', r.data.token,
+                            {
+                                path: '/',
+                            }
+                        );
+                    }
+                    history.push("/");
+
+                } else {
+                    setMessage(r.msg)
+                    setShowDefault(true)
+                }
 
 
-    // document.getElementById('.img-btn').addEventListener('click', function()
-    // 	{
-    // 		document.getElementById('.cont').classList.toggle('s-signup')
-    // 	}
-    // );
+            }).catch(error => console.error('Error', error))
+
+
+
+    }
 
 
     return (
@@ -48,15 +96,20 @@ function Auth(props) {
                     <form>
 
                         <div className="form-group col-md-12">
-                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email Adress" />
+                            <input type="email" className="form-control" onChange={e => setEmail(e.target.value)} id="inputEmail4" placeholder="Email Adress" />
                         </div>
                         <div className="form-group col-md-12">
-                            <input type="email" className="form-control" id="inputEmail4" placeholder="Password" />
+                            <input type="password" className="form-control" onChange={e => setPassword(e.target.value)} id="passwordinput" placeholder="Password" />
+                        </div>
+                        <div className="form-group col-md-12">
+                            <Form.Check type="checkbox">
+                                <FormCheck.Input id="defaultCheck5" onChange={e => setCheckBoxHandler()} className="me-2" />
+                                <FormCheck.Label htmlFor="defaultCheck5" className="mb-0">Remember me</FormCheck.Label>
+                            </Form.Check>
                         </div>
 
-
                         <div className="form-row">
-                            <button type="button" onClick={() => { handleSubmit() }} className="btn btn-primary col-md-12">Login</button>
+                            <button type="button" onClick={() => { Handleclicklogin() }} className="btn btn-primary col-md-12">Login</button>
                         </div>
                     </form>
                 </div>
@@ -82,10 +135,6 @@ function Auth(props) {
     )
 
 }
-// document.getElementById('.img-btn').addEventListener('click', function()
-// 	{
-// 		document.getElementById('.cont').classList.toggle('s-signup')
-// 	}
-// );
+
 
 export default Auth
