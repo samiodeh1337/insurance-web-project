@@ -4,22 +4,17 @@ import Table from '../Parts/Table/Table'
 import Chart from '../Parts/Chart/PieChart'
 import './Dashboard.css'
 
-class Dashboard extends Component {
+function Dashboard(props) {
 
-    render() {
-        return (
-            <div className="row container-fluid">
+    return (
+        <div className="row container-fluid">
 
             <SideBar className="col"></SideBar>
             <Table className="col tableStyle"></Table>
             <Chart className="col" ></Chart>
-            
+        </div>
 
-
-            </div>
-        
-        )
-    }
+    )
 }
 
 
