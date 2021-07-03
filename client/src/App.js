@@ -7,7 +7,6 @@ import './App.css';
 import Auth from './components/Pages/Auth/Auth';
 import Insurance from './components/Pages/insurance/Insurance';
 
-import Dashboard from './components/Pages/dashboard/Dashboard';
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={Insurance} />
         <Route exact path="/sign-in" component={Auth} />
         <Route exact path="/new_insurance" component={Insurance} />
         {/* <Route path="/Auth" component={Auth} /> */}
