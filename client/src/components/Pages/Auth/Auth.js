@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import GoogleLogin from 'react-google-login'
-import $ from "jquery";
+
 
 export class Auth extends Component {
     state = {
@@ -40,16 +39,9 @@ export class Auth extends Component {
     // 		document.getElementById('.cont').classList.toggle('s-signup')
     // 	}
     // );
-    componentDidMount() {
-        $('.img-btn').click(function () {
-            $('.cont').toggleClass('s-signup');
-        });
-    }
 
-    responseGoogle = (response) => {
-        console.log(response);
-        console.log(response.profileObj);
-    }
+
+
     render() {
         return (
             <div className="container" style={{ marginTop: '10%' }}>

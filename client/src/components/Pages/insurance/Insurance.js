@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import GoogleLogin from 'react-google-login'
-import $ from "jquery";
-import './Insurance.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export class Insurance extends Component {
     state = {
@@ -33,16 +29,7 @@ export class Insurance extends Component {
     // 		document.getElementById('.cont').classList.toggle('s-signup')
     // 	}
     // );
-    componentDidMount() {
-        $('.img-btn').click(function () {
-            $('.cont').toggleClass('s-signup');
-        });
-    }
 
-    responseGoogle = (response) => {
-        console.log(response);
-        console.log(response.profileObj);
-    }
     render() {
         return (
             <div className="container">
