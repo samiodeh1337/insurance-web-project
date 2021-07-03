@@ -16,6 +16,8 @@ exports.newRequest = function (req, res) {
         insuranceAmountRequested: req.body.insuranceAmountRequested,
         insuranceCompanyName: req.body.insuranceCompanyName,
         calculated: 0,
+        phone: req.body.phone,
+        comment: req.body.comment,
         insuranceData: [{
             companyUserId: req.body.companyUserId,
             PrevinsuranceCompanyName: req.body.PrevinsuranceCompanyName,

@@ -85,10 +85,17 @@ function Auth(props) {
     return (
         <div className="container" style={{ marginTop: '10%' }}>
             <div className="row">
+
                 <div className="col-md-4 py-5 bg-primary">
                     <div className="card-body">
                         <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style={{ width: '30%' }} />
                         <h2 className="py-3">Login</h2>
+                        <h5>OR</h5>
+                        <Card >
+                            <Card.Body>
+                                <Card.Link href="/new_insurance">Assign new Request!</Card.Link>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </div>
                 <div className="col-md-8 py-5 border">
@@ -110,7 +117,9 @@ function Auth(props) {
 
                         <div className="form-row">
                             <button type="button" onClick={() => { Handleclicklogin() }} className="btn btn-primary col-md-12">Login</button>
+
                         </div>
+
                     </form>
                 </div>
             </div>

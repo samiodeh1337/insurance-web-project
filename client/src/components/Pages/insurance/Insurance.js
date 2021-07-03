@@ -1,5 +1,6 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup, Modal, Dropdown } from '@themesberg/react-bootstrap';
+import { useHistory } from "react-router-dom";
 
 function Insurance(props) {
 
@@ -17,7 +18,15 @@ function Insurance(props) {
     const [comment, setcomment] = useState('');
     const [Phone, setPhone] = useState('');
     const [Email, setEmail] = useState('');
+    const [submitted, setsubmitted] = useState(false);
+    const [data, setdata] = useState(undefined);
 
+    useEffect(() => {
+        setsubmitted(false);
+    }, []);
+
+    const history = useHistory();
+    const navigateToLogin = () => history.push('/sign-in');
 
 
     const handleClose = () => setShowDefault(false);
@@ -70,17 +79,31 @@ function Insurance(props) {
             return;
         }
 
-        fetch('http://localhost:5000/api/users/login', {
+        fetch('http://localhost:5000/api/insurance/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email: Email })
+            body: JSON.stringify({
+                firstname: Firstname,
+                lastname: Lastname,
+                email: Email,
+                insuranceAmountRequested: insuranceAmount,
+                insuranceCompanyName: "Harel",
+                companyUserId: SocialNumber,
+                PrevinsuranceCompanyName: PinsCom,
+                Previousinsurancenumber: Pinsnum,
+                PrevinsuranceID: PinsId,
+                phone: Phone,
+                comment: comment,
+            })
         }).then(r => r.json())
             .then(r => {
                 console.log(r);
                 if (r.response == "Success") {
 
+                    setdata(r.data);
+                    setsubmitted(true);
 
 
                 } else {
@@ -98,7 +121,8 @@ function Insurance(props) {
     return (
         <div className="container">
 
-            <div className="row ">
+
+            {submitted === false ? <div>   <div className="row ">
                 <div className="col-md-4 py-5 bg-primary text-white text-center ">
                     <div className="card-body">
                         <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style={{ width: '30%' }} />
@@ -157,23 +181,32 @@ function Insurance(props) {
                     </form>
                 </div>
             </div>
-            <React.Fragment>
-                <Modal as={Modal.Dialog} centered show={showDefault} onHide={handleClose}>
-                    <Modal.Header>
-                        <Modal.Title className="h6">Message</Modal.Title>
-                        <Button variant="close" aria-label="Close" onClick={handleClose} />
-                    </Modal.Header>
-                    <Modal.Body>
-                        <p>{message}</p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            I Got It
+                <React.Fragment>
+                    <Modal as={Modal.Dialog} centered show={showDefault} onHide={handleClose}>
+                        <Modal.Header>
+                            <Modal.Title className="h6">Message</Modal.Title>
+                            <Button variant="close" aria-label="Close" onClick={handleClose} />
+                        </Modal.Header>
+                        <Modal.Body>
+                            <p>{message}</p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                I Got It
                         </Button>
 
-                    </Modal.Footer>
-                </Modal>
-            </React.Fragment>
+                        </Modal.Footer>
+                    </Modal>
+                </React.Fragment></div> : <Card>
+                <Card.Body>
+                    <Card.Title>Thank you for your request</Card.Title>
+                    <Card.Text>
+                        Your request number is {data.insuranceData[0].RequestNumber}.
+                    We will review your request and will contact you soon!
+                    </Card.Text>
+                    <Button variant="primary" onClick={navigateToLogin}>Go to Login</Button>
+                </Card.Body>
+            </Card>}
         </div>
     )
 

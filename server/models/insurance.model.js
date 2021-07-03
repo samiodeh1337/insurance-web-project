@@ -7,6 +7,8 @@ const insuranceSchema = new mongoose.Schema({
     email: { type: String, required: true, lowercase: true },
     insuranceAmountRequested: { type: Number, required: true },
     insuranceCompanyName: { type: String, required: true },
+    phone: { type: String, required: true },
+    comment: { type: String, required: true },
     calculated: { type: Number, required: true, default: 0 },
     insuranceData: [{
         companyUserId: { type: String, required: true },
