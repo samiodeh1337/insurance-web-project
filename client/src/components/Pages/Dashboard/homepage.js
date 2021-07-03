@@ -11,9 +11,7 @@ class HomePage extends Component {
             <div className="container" style={{ marginTop: '10%' }}>
                 <div className="row container-fluid">
 
-                    <SideBar className="col"></SideBar>
-                    <Table className="col tableStyle"></Table>
-                    <Chart className="col" ></Chart>
+                    <p>jjjjj</p>
                 </div>
             </div>
 
