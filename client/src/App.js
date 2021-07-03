@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import './App.css';
 import Auth from './components/Pages/Auth/Auth';
 import Insurance from './components/Pages/insurance/Insurance';
+import homepage from './components/Pages/dashboard/homepage';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={Insurance} />
+        <Route exact path="/" component={homepage} />
         <Route exact path="/sign-in" component={Auth} />
         <Route exact path="/new_insurance" component={Insurance} />
         {/* <Route path="/Auth" component={Auth} /> */}
