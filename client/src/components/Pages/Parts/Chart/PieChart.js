@@ -1,19 +1,33 @@
 import React, { Component } from 'react'
-import { PieChart } from 'react-minimal-pie-chart';
+// import { PieChart } from 'react-minimal-pie-chart';
+import Chart from "react-google-charts";
 import './PieChart.css';
 
-class Chart extends Component {
+class PieChart extends Component {
 
     render() {
         return (
         
-          <PieChart lineWidth='100' className="pie"
-                data={[
-                    { title: 'One', value: 10, color: '#E38627' },
-                    { title: 'Two', value: 15, color: '#C13C37' },
-                    { title: 'Three', value: 20, color: '#6A2135' },
-                ]}
-            />
+            <Chart className="col-sm-12 col-md-12 "
+            width={'300px'}
+            height={'300px'}
+            chartType="PieChart"
+            loader={<div>Loading Chart</div>}
+            data={[
+              ['Task', 'Hours per Day'],
+              ['Medium', 11],
+              ['Low', 2],
+              ['Svere', 2],
+              ['High ', 2],
+          
+            ]}
+            options={{
+              title: 'My Daily Activities',
+              // Just add this option
+              pieHole: 0.2,
+            }}
+            rootProps={{ 'data-testid': '3' }}
+          />
     
 
 
@@ -23,4 +37,4 @@ class Chart extends Component {
 }
 
 
-export default Chart
+export default PieChart

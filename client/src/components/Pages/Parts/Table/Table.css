@@ -1,3 +1,21 @@
-.tableStyle2{
-    width: 40%;
-}
+
+
+.noWrap{ 
+    /* width: 40% !important; */
+     /* overflow-x:auto; */
+     white-space: nowrap;
+} 
+
+/* 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+   */
