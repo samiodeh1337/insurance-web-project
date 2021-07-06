@@ -42,10 +42,10 @@
         ],
         "insuranceEnable": 1,
         "dateofEnblment": 10042022,
-        "CarStatus": "no_claims",
+        "CarStatus": "NoClaims",
         "UserRank": "1",
         "comment": "1 low , 2 mid , 3 high , 4 severe",
-        "message": "no_claims"
+        "message": "NoClaims"
     },
     {
         "insuranceType": "CarInsurance",
@@ -66,10 +66,10 @@
         ],
         "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
-        "CarStatus": "New driver",
+        "CarStatus": "new_Driver",
         "UserRank": "3",
         "comment": "1 low , 2 mid , 3 high , 4 severe",
-        "message": "New driver"
+        "message": "new_Driver"
     },
     {
         "insuranceType": "CarInsurance",
@@ -90,10 +90,10 @@
         ],
         "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
-        "CarStatus": "New driver",
+        "CarStatus": "new_Driver",
         "UserRank": "2",
         "comment": "1 low , 2 mid , 3 high , 4 severe",
-        "message": "New driver"
+        "message": "new_Driver"
     },
     {
         "insuranceType": "CarInsurance",
@@ -114,9 +114,9 @@
         ],
         "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
-        "CarStatus": "New driver",
+        "CarStatus": "new_Driver",
         "UserRank": "4",
         "comment": "1 low , 2 mid , 3 high , 4 severe",
-        "message": "New driver"
+        "message": "new_Driver"
     }
 ]

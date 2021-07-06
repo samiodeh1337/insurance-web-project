@@ -1,8 +1,8 @@
 
 
 const Insurance = require('../models/insurance.model');
-// import api_previous_insurances from '../api/insurances.json';
-
+const api_previous_insurances = require('../api/insurances');
+const policy = require('../api/Policy.json');
 
 
 exports.getall = function (req, res) {
@@ -13,18 +13,58 @@ exports.getall = function (req, res) {
 
 }
 
-exports.calculate = function (req, res) {
-    Insurance.find({ _id: req.body._id }, (err, res) => {
-        if (err) return res.json({ response: 'Error' });
-        //read car status from [firstname][lastname].json
-        let firstname = res.firstname;
-        let lastname = res.lastname;
+exports.calculate = function (req, result) {
+    Insurance.findById(req.body._id, (err, res) => {
+        if (err || res == null) return result.json({ response: 'Error' });
 
 
+        let found = {}
+        api_previous_insurances.forEach(elem => {
+            if (elem.FirstName == res.FirstName && elem.LastName == res.LastName) {
+                found = elem;
+            }
+        })
 
-        return res.json("test");
+        let CarStatus = found.CarStatus;
         //read policy
+        //console.log(policy);
+        severity = "";
+
+        if (policy.Low[0].CarStatus === CarStatus) {
+            severity = "LOW";
+        }
+        if (policy.Mid[0].CarStatus === CarStatus) {
+            severity = "MID";
+        }
+        if (policy.High[0].CarStatus === CarStatus) {
+            severity = "HIGH";
+        }
+        if (policy.Severe[0].CarStatus === CarStatus) {
+            severity = "SEVERE";
+        }
+        let insuranceEnable = found.insuranceEnable;
+        let dateofEnblment = found.dateofEnblment;
+        let UserRank = found.UserRank;
+        let message = found.message;
+        let calculated = 1;
+
         //update db
+        let update_element = res;
+        update_element.insuranceEnable = insuranceEnable;
+        update_element.dateofEnblment = dateofEnblment;
+        update_element.UserRank = UserRank;
+        update_element.message = message;
+        update_element.calculated = calculated;
+        update_element.severity = severity;
+        update_element.CarStatus = CarStatus;
+        //console.log(update_element);
+
+        Insurance.findByIdAndUpdate(req.body._id, { $set: update_element }, (err, res) => {
+            if (err) return res.json({ response: 'Error' });
+            if (res == null) return res.json({ response: 'Error', msg: 'Could not found' });
+            return result.json({ response: 'Success', msg: 'Insurance id' + update_element._id + ' has been updated' });
+        });
+
     });
 }
 

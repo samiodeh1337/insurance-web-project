@@ -10,6 +10,7 @@ function jwt() {
             '/api/users/login',
             '/api/insurance/new',
             '/api/insurance/getall',
+            '/api/insurance/calc',
         ]
     });
 }
