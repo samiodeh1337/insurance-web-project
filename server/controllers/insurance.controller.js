@@ -5,6 +5,13 @@ const Insurance = require('../models/insurance.model');
 
 
 
+exports.getall = function (req, res) {
+    Insurance.find({}, (err, result) => {
+        if (err) return res.json({ response: 'Error' });
+        return res.json(result);
+    });
+
+}
 exports.newRequest = function (req, res) {
 
 
@@ -26,7 +33,6 @@ exports.newRequest = function (req, res) {
             PrevinsuranceID: req.body.PrevinsuranceID,
         }],
     });
-
 
     newRequest.save((err, result) => {
         if (err) {

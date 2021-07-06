@@ -17,7 +17,11 @@ const insuranceSchema = new mongoose.Schema({
         Previousinsurancenumber: { type: String, required: true },
         PrevinsuranceID: { type: String, required: true },
     }],
-
+    insuranceEnable: { type: String, required: true, default: 0 },
+    dateofEnblment: { type: String, required: true, default: new Date().toISOString().substring(0, 10) },
+    CarStatus: { type: String, required: true, default: "no_status" },
+    UserRank: { type: Number, required: true, default: 0 },
+    message: { type: String, required: true, default: "none" },
 });
 
 module.exports = InsRequests = mongoose.model('InsRequests', insuranceSchema);

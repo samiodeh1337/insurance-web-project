@@ -9,6 +9,7 @@ function jwt() {
             '/favicon.ico',
             '/api/users/login',
             '/api/insurance/new',
+            '/api/insurance/getall',
         ]
     });
 }

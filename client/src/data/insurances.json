@@ -1,9 +1,9 @@
 [
     {
         "insuranceType": "CarInsurance",
-        "calculated":0,
-		"FirstName": "Israel",
-		"LastName": "Israeli",
+        "calculated": 0,
+        "FirstName": "Israel",
+        "LastName": "Israeli",
         "insuranceAmountRequested": "500",
         "insuranceCompanyName": "Harel",
         "insuranceData": [
@@ -11,24 +11,23 @@
                 "companyUserId": 123,
                 "PrevinsuranceCompanyName": "Migdal",
                 "RequestNumber": 5578,
-                "Previousinsurancenumber": 2435455,        
+                "Previousinsurancenumber": 2435455,
                 "PrevinsuranceID": 47789,
                 "insuranceCompanyfee": "10"
             }
-           
         ],
-        "insuranceEnable": 1, 
+        "insuranceEnable": 1,
         "dateofEnblment": "01/08/2020",
         "CarStatus": "accident",
-        "UserRank": "4" ,
-		"comment": "1 low , 2 mid , 3 high , 4 severe",
+        "UserRank": "4",
+        "comment": "1 low , 2 mid , 3 high , 4 severe",
         "message": "accident with car Golf in Tel Aviv"
-	},
+    },
     {
         "insuranceType": "CarInsurance",
-        "calculated":1,
-		"FirstName": "Moshe",
-		"LastName": "Cohen",
+        "calculated": 1,
+        "FirstName": "Moshe",
+        "LastName": "Cohen",
         "insuranceAmountRequested": "2000",
         "insuranceCompanyName": "Harel",
         "insuranceData": [
@@ -36,25 +35,23 @@
                 "companyUserId": 3222,
                 "PrevinsuranceCompanyName": "Migdal",
                 "RequestNumber": 4422,
-                "Previousinsurancenumber": 5343434,        
+                "Previousinsurancenumber": 5343434,
                 "PrevinsuranceID": 1333,
                 "insuranceCompanyfee": "10"
             }
-           
         ],
-        "insuranceEnable": 1, 
+        "insuranceEnable": 1,
         "dateofEnblment": 10042022,
         "CarStatus": "no_claims",
-        "UserRank": "1" ,
-		"comment": "1 low , 2 mid , 3 high , 4 severe",
+        "UserRank": "1",
+        "comment": "1 low , 2 mid , 3 high , 4 severe",
         "message": "no_claims"
-	},
-    
+    },
     {
         "insuranceType": "CarInsurance",
-        "calculated":1,
-		"FirstName": "Yossi",
-		"LastName": "Lavi",
+        "calculated": 1,
+        "FirstName": "Yossi",
+        "LastName": "Lavi",
         "insuranceAmountRequested": "322",
         "insuranceCompanyName": "Harel",
         "insuranceData": [
@@ -62,24 +59,23 @@
                 "companyUserId": 123,
                 "PrevinsuranceCompanyName": "Migdal",
                 "RequestNumber": 643,
-                "Previousinsurancenumber": 23344,        
+                "Previousinsurancenumber": 23344,
                 "PrevinsuranceID": 3434,
                 "insuranceCompanyfee": "10"
             }
-           
         ],
-        "insuranceEnable": 1, 
+        "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
         "CarStatus": "New driver",
-        "UserRank": "3" ,
-		"comment": "1 low , 2 mid , 3 high , 4 severe",
+        "UserRank": "3",
+        "comment": "1 low , 2 mid , 3 high , 4 severe",
         "message": "New driver"
-	},
+    },
     {
         "insuranceType": "CarInsurance",
-        "calculated":1,
-		"FirstName": "Yossi",
-		"LastName": "Lavi",
+        "calculated": 1,
+        "FirstName": "Yossi",
+        "LastName": "Lavi",
         "insuranceAmountRequested": "322",
         "insuranceCompanyName": "Harel",
         "insuranceData": [
@@ -87,24 +83,23 @@
                 "companyUserId": 123,
                 "PrevinsuranceCompanyName": "Migdal",
                 "RequestNumber": 643,
-                "Previousinsurancenumber": 23344,        
+                "Previousinsurancenumber": 23344,
                 "PrevinsuranceID": 3434,
                 "insuranceCompanyfee": "10"
             }
-           
         ],
-        "insuranceEnable": 1, 
+        "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
         "CarStatus": "New driver",
-        "UserRank": "2" ,
-		"comment": "1 low , 2 mid , 3 high , 4 severe",
+        "UserRank": "2",
+        "comment": "1 low , 2 mid , 3 high , 4 severe",
         "message": "New driver"
-	},
+    },
     {
         "insuranceType": "CarInsurance",
-        "calculated":1,
-		"FirstName": "Yossi",
-		"LastName": "Lavi",
+        "calculated": 1,
+        "FirstName": "Yossi",
+        "LastName": "Lavi",
         "insuranceAmountRequested": "322",
         "insuranceCompanyName": "Harel",
         "insuranceData": [
@@ -112,20 +107,16 @@
                 "companyUserId": 123,
                 "PrevinsuranceCompanyName": "Migdal",
                 "RequestNumber": 643,
-                "Previousinsurancenumber": 23344,        
+                "Previousinsurancenumber": 23344,
                 "PrevinsuranceID": 3434,
                 "insuranceCompanyfee": "10"
             }
-           
         ],
-        "insuranceEnable": 1, 
+        "insuranceEnable": 1,
         "dateofEnblment": "01/08/2025",
         "CarStatus": "New driver",
-        "UserRank": "4" ,
-		"comment": "1 low , 2 mid , 3 high , 4 severe",
+        "UserRank": "4",
+        "comment": "1 low , 2 mid , 3 high , 4 severe",
         "message": "New driver"
-	}
-
+    }
 ]
-
-
