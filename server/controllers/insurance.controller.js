@@ -1,7 +1,7 @@
 
 
 const Insurance = require('../models/insurance.model');
-
+import api_previous_insurances from '../api/insurances.json';
 
 
 
@@ -12,6 +12,22 @@ exports.getall = function (req, res) {
     });
 
 }
+
+exports.calculate = function (req, res) {
+    Insurance.find({ _id: req.body._id }, (err, res) => {
+        if (err) return res.json({ response: 'Error' });
+        //read car status from [firstname][lastname].json
+        let firstname = res.firstname;
+        let lastname = res.lastname;
+
+
+
+        return res.json("test");
+        //read policy
+        //update db
+    });
+}
+
 exports.newRequest = function (req, res) {
 
 
