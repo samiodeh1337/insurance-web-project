@@ -28,7 +28,7 @@ class HomePage extends Component {
     render(){
         return (
             <div>
-                <sidebar className="sidebar">
+                <sidebar className="sidebar ">
                     <div className="logo_content mb-5">
                         <i class='bx bx-menu' id="btn"></i>
                     </div>
@@ -49,9 +49,9 @@ class HomePage extends Component {
                     </li>
                     </ul>
                 </sidebar>
-                <div className="home_content row">
-                    <Table className="text" data={this.state.data}></Table>
-                    <Chart></Chart>
+                <div className="home_content row mt-5">
+                    <Table className="text bg-primary" data={this.state.data}></Table>
+                    <Chart data={this.state.data}></Chart>
                 </div>
              </div>
 

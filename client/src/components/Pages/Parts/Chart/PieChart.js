@@ -8,8 +8,8 @@ class PieChart extends Component {
     render() {
         return (
         
-            <Chart className="col-sm-12 col-md-12 "
-            width={'300px'}
+            <Chart className="col-sm-12 col-md-12 pie mt-2"
+            width={'400px'}
             height={'300px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
@@ -22,7 +22,7 @@ class PieChart extends Component {
           
             ]}
             options={{
-              title: 'My Daily Activities',
+              title: 'Org Risk',
               // Just add this option
               pieHole: 0.2,
             }}

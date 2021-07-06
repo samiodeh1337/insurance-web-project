@@ -4,5 +4,6 @@
     /* max-width: 400px;  */
     /* max-width: 20%; */
     /* margin: 0px auto; padding: 50px; */
-    width: 10% !important;
+    /* width: 10% !important; */
+    align-items: center;
 }
