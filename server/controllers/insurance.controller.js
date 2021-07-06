@@ -31,13 +31,15 @@ exports.calculate = function (req, result) {
         severity = "";
 
         if (policy.Low[0].CarStatus === CarStatus) {
-            severity = "LOW";
+            if (found.UserRank == 1)
+                severity = "LOW";
         }
         if (policy.Mid[0].CarStatus === CarStatus) {
             severity = "MID";
         }
         if (policy.High[0].CarStatus === CarStatus) {
-            severity = "HIGH";
+            if (found.UserRank != 1)
+                severity = "HIGH";
         }
         if (policy.Severe[0].CarStatus === CarStatus) {
             severity = "SEVERE";
@@ -67,6 +69,7 @@ exports.calculate = function (req, result) {
 
     });
 }
+
 
 exports.newRequest = function (req, res) {
 
