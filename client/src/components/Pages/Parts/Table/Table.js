@@ -10,17 +10,23 @@ class Tablein extends Component {
   }
   
 severity(UserRank) {
+  let severe=""
   switch(UserRank) {
-    case "1":
-      return "LOW"
-    case "2":
-      return "MEDIUM"
-    case "3":
-      return "HIGHT"
-    case "4":
-      return "SEVERE"
+    case 1:
+      severe="LOW"
+      return severe;
+    case 2:
+      severe="MEDIUM"
+      return severe;
+    case 3:
+      severe="HIGH"
+      return severe;
+    case 4:
+      severe="SEVERE"
+      return severe;
     default:
-      return "SEVERE"
+      return severe;
+
   }
 }
 

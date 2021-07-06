@@ -4,15 +4,25 @@ import Table from '../Parts/Table/Table'
 import Chart from '../Parts/Chart/PieChart'
 import $ from "jquery";
 import './dashboard.css';
-import Json from '../../../data/insurances.json'
+// import Json from '../../../data/insurances.json'
 
 
 
 class HomePage extends Component {
+    constructor() {
+        super();
+        this.state = { data: [] };
+      }
+
     componentDidMount(){
         $("#btn").click(function(){
           $('.sidebar').toggleClass('active');
         })
+
+    fetch('http://localhost:5000/api/insurance/getall')
+        .then(res => res.json())
+        .then(json => this.setState({ data: json }));
+          
       }
     
     render(){
@@ -40,7 +50,7 @@ class HomePage extends Component {
                     </ul>
                 </sidebar>
                 <div className="home_content row">
-                    <Table className="text" data={Json}></Table>
+                    <Table className="text" data={this.state.data}></Table>
                     <Chart></Chart>
                 </div>
              </div>

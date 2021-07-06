@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 
 const insuranceSchema = new mongoose.Schema({
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
+    FirstName: { type: String, required: true },
+    LastName: { type: String, required: true },
     email: { type: String, required: true, lowercase: true },
     insuranceAmountRequested: { type: Number, required: true },
     insuranceCompanyName: { type: String, required: true },
@@ -22,6 +22,7 @@ const insuranceSchema = new mongoose.Schema({
     CarStatus: { type: String, required: true, default: "no_status" },
     UserRank: { type: Number, required: true, default: 0 },
     message: { type: String, required: true, default: "none" },
+    insuranceType: {type: String ,required: true, default: "CarInsurnace" }
 });
 
 module.exports = InsRequests = mongoose.model('InsRequests', insuranceSchema);

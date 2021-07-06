@@ -1,7 +1,7 @@
 
 
 const Insurance = require('../models/insurance.model');
-import api_previous_insurances from '../api/insurances.json';
+// import api_previous_insurances from '../api/insurances.json';
 
 
 
@@ -33,8 +33,8 @@ exports.newRequest = function (req, res) {
 
     let newRequest = new Insurance({
 
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
+        FirstName: req.body.firstname,
+        LastName: req.body.lastname,
         email: req.body.email,
         insuranceAmountRequested: req.body.insuranceAmountRequested,
         insuranceCompanyName: req.body.insuranceCompanyName,
