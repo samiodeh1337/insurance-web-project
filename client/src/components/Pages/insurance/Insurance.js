@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react'
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup, Modal, Dropdown } from '@themesberg/react-bootstrap';
 import { useHistory } from "react-router-dom";
+import onServer from '../../../config'
 
 function Insurance(props) {
 
@@ -78,7 +79,16 @@ function Insurance(props) {
             setShowDefault(true)
             return;
         }
-        let link = process.env.SERVER_LINK || "http://localhost:5000";
+
+
+
+        let link = "";
+        if (onServer() == true) {
+            link = "https://insurance-web-project.herokuapp.com";
+        } else {
+            link = "http://localhost:5000";
+        }
+
         fetch(link + '/api/insurance/new', {
             method: 'POST',
             headers: {

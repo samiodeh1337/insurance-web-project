@@ -3,7 +3,7 @@ import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup, Modal }
 import cookie from 'react-cookies'
 import { Link, useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router';
-
+import onServer from '../../../config'
 function Auth(props) {
 
 
@@ -42,7 +42,15 @@ function Auth(props) {
             setShowDefault(true)
             return;
         }
-        let link = process.env.SERVER_LINK || "http://localhost:5000";
+
+        let link = "";
+        if (onServer() == true) {
+            link = "https://insurance-web-project.herokuapp.com";
+        } else {
+            link = "http://localhost:5000";
+        }
+
+
         fetch(link + '/api/users/login', {
             method: 'POST',
             headers: {

@@ -5,6 +5,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Table.css'
+import onServer from '../../../../config'
 
 class Tablein extends Component {
   constructor(props) {
@@ -47,7 +48,14 @@ class Tablein extends Component {
   }
   calculatehandle = (id) => {
 
-    let link = process.env.SERVER_LINK || "http://localhost:5000";
+
+    let link = "";
+    if (onServer() == true) {
+      link = "https://insurance-web-project.herokuapp.com";
+    } else {
+      link = "http://localhost:5000";
+    }
+
     fetch(link + '/api/insurance/calc', {
       method: 'POST',
       headers: {

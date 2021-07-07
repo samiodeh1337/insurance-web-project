@@ -7,7 +7,7 @@ import { withRouter } from "react-router";
 import cookie from 'react-cookies'
 import './dashboard.css';
 // import Json from '../../../data/insurances.json'
-
+import onServer from '../../../config'
 
 
 class HomePage extends Component {
@@ -30,7 +30,12 @@ class HomePage extends Component {
         })
 
 
-        let link = process.env.SERVER_LINK || "http://localhost:5000";
+        let link = "";
+        if (onServer() == true) {
+            link = "https://insurance-web-project.herokuapp.com";
+        } else {
+            link = "http://localhost:5000";
+        }
         fetch(link + '/api/insurance/getall')
             .then(res => res.json())
             .then(json => this.setState({ data: json }));
