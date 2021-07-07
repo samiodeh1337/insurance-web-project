@@ -97,8 +97,8 @@ function Auth(props) {
                 <div className="col-md-4 py-5 bg-primary">
                     <div className="card-body">
                         <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style={{ width: '30%' }} />
-                        <h2 className="py-3">Login</h2>
-                        <h5>OR</h5>
+                        <h2 style={{ color: "white" }} className="py-3">Login</h2>
+                        <h5 style={{ color: "white" }}>OR</h5>
                         <Card >
                             <Card.Body>
                                 <Card.Link href="/new_insurance">Assign new Request!</Card.Link>
