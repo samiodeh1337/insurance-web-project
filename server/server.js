@@ -35,8 +35,15 @@ app.get('/favicon.ico', function (req, res) {
     res.end();
 });
 
-
+const User = require('./models/user.model');
 app.get("/", (req, res) => {
-    res.status(200).send("insurance final project!");
+    User.find({}, (err, result) => {
+        if (err) return res.json({ response: 'Error' });
+        let users = [];
+        result.forEach(elem => {
+            users.push(elem.email);
+        })
+        return res.json(users);
+    });
 });
 

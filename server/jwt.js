@@ -6,6 +6,7 @@ function jwt() {
     return expressJwt({ secret: projectConfig.jwtSecret, algorithms: ['HS256'], isRevoked: isRevoked }).unless({
         path: [
             // public routes that don't require authentication
+            '/',
             '/favicon.ico',
             '/api/users/login',
             '/api/insurance/new',
