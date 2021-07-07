@@ -78,8 +78,8 @@ function Insurance(props) {
             setShowDefault(true)
             return;
         }
-
-        fetch('http://localhost:5000/api/insurance/new', {
+        let link = process.env.SERVER_LINK || "http://localhost:5000";
+        fetch(link + '/api/insurance/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

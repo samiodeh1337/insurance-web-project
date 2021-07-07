@@ -30,8 +30,8 @@ class HomePage extends Component {
         })
 
 
-
-        fetch('http://localhost:5000/api/insurance/getall')
+        let link = process.env.SERVER_LINK || "http://localhost:5000";
+        fetch(link + '/api/insurance/getall')
             .then(res => res.json())
             .then(json => this.setState({ data: json }));
 

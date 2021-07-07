@@ -47,7 +47,8 @@ class Tablein extends Component {
   }
   calculatehandle = (id) => {
 
-    fetch('http://localhost:5000/api/insurance/calc', {
+    let link = process.env.SERVER_LINK || "http://localhost:5000";
+    fetch(link + '/api/insurance/calc', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
