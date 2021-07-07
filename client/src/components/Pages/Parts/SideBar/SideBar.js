@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem, CDBSidebarFooter,CDBContainer } from "cdbreact";
+import { CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem, CDBSidebarFooter, CDBContainer } from "cdbreact";
 import './SideBar.css'
 import 'boxicons'
 import Table from '../Table/Table'
@@ -24,7 +24,7 @@ import $ from "jquery";
 //    }
 //   </script>
 
-class SideBar extends Component  {
+class SideBar extends Component {
 
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class SideBar extends Component  {
     let sidebar = document.querySelector(".sidebar");
     let searchBtn = document.querySelector(".bx-search");
 
-    $("#btn").click(function(){
+    $("#btn").click(function () {
       $('.sidebar').toggleClass('active');
     })
 
@@ -54,45 +54,45 @@ class SideBar extends Component  {
     // })
   }
 
-render(){
+  render() {
     return (
       <div>
-      <sidebar className="sidebar">
-        <div className="logo_content">
+        <sidebar className="sidebar">
+          <div className="logo_content">
             <div className="logo">
               {/* <div className="logo_name">
                  HAREL 
               </div> */}
             </div>
             {/* <box-icon name='menu' id="btn"></box-icon> */}
-            <i class='bx bx-menu' id="btn"></i>
+            <i className='bx bx-menu' id="btn"></i>
+          </div>
+          <ul className="nav_list">
+            <li>
+              <a href='/'>
+                {/* <box-icon name='dashboard' type='solid' className="icon" ></box-icon> */}
+                <i className='bx bxs-dashboard'></i>
+                <span className="links_name"> Dashboard</span>
+              </a>
+              <span className="tooltip"> Dashboard</span>
+            </li>
+            <li>
+              <a href='/'>
+                {/* <box-icon type='solid' name='user' className="icon"></box-icon> */}
+                <i className='bx bxs-user'></i>
+                <span className="links_name"> Users</span>
+              </a>
+              <span className="tooltip"> Users</span>
+            </li>
+          </ul>
+        </sidebar>
+        <div className="home_content row">
+          <Table className="text"></Table>
+          <Chart></Chart>
         </div>
-        <ul className="nav_list">
-          <li>
-            <a href='/'>
-              {/* <box-icon name='dashboard' type='solid' className="icon" ></box-icon> */}
-              <i class='bx bxs-dashboard'></i>
-              <span className="links_name"> Dashboard</span>
-            </a>
-            <span class="tooltip"> Dashboard</span>
-          </li>
-          <li>
-            <a href='/'>
-              {/* <box-icon type='solid' name='user' className="icon"></box-icon> */}
-              <i class='bx bxs-user'></i>
-              <span className="links_name"> Users</span>
-            </a>
-            <span class="tooltip"> Users</span>
-          </li>
-        </ul>
-      </sidebar>
-      <div className="home_content row">
-        <Table className="text"></Table>
-        <Chart></Chart>
-      </div>
       </div>
     );
   }
 };
 
-export default  SideBar;
+export default SideBar;

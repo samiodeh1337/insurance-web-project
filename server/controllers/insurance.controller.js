@@ -64,7 +64,12 @@ exports.calculate = function (req, result) {
         Insurance.findByIdAndUpdate(req.body._id, { $set: update_element }, (err, res) => {
             if (err) return res.json({ response: 'Error' });
             if (res == null) return res.json({ response: 'Error', msg: 'Could not found' });
-            return result.json({ response: 'Success', msg: 'Insurance id' + update_element._id + ' has been updated' });
+            Insurance.find({}, (err, res) => {
+                if (err) return result.json({ response: 'Error' });
+                return result.json(res);
+            });
+
+            //return result.json({ response: 'Success', msg: 'Insurance id' + update_element._id + ' has been updated' });
         });
 
     });

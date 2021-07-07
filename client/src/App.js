@@ -7,6 +7,7 @@ import './App.css';
 import Auth from './components/Pages/Auth/Auth';
 import Insurance from './components/Pages/insurance/Insurance';
 import HomePage from './components/Pages/dashboard/homepage';
+import NotFound from './components/Pages/NotFound/NotFound';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/sign-in" component={Auth} />
         <Route exact path="/new_insurance" component={Insurance} />
-        {/* <Route path="/Auth" component={Auth} /> */}
+        <Route exact path="*" component={NotFound} />
 
       </Switch>
     </div>
