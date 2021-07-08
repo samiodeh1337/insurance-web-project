@@ -22,7 +22,7 @@ function Auth(props) {
         let token = cookie.load('token')
         token == undefined ? isLoggedIn = false : isLoggedIn = true;
         if (isLoggedIn == true) {
-            history.push("/");
+            history.push("/dashboard");
         }
     }, []);
     const handleClose = () => setShowDefault(false);
@@ -75,7 +75,7 @@ function Auth(props) {
                             }
                         );
                     }
-                    history.push("/");
+                    history.push("/dashboard");
 
                 } else {
                     setMessage(r.msg)

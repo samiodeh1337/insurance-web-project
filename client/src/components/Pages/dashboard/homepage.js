@@ -55,14 +55,14 @@ class HomePage extends Component {
                     </div>
                     <ul className="nav_list mt-5">
                         <li className="pt-2">
-                            <a href='/'>
+                            <a href='/dashboard'>
                                 <i class='bx bxs-dashboard'></i>
                                 <span className="links_name"> Dashboard</span>
                             </a>
                             <span class="tooltip"> Dashboard</span>
                         </li>
                         <li>
-                            <a href='/'>
+                            <a href='/dashboard'>
                                 <i class='bx bxs-user'></i>
                                 <span className="links_name"> Users</span>
                             </a>

@@ -60,11 +60,11 @@ export default () => {
           } else {
             cookie.save('token', r.data.token,
               {
-                path: '/',
+                path: '',
               }
             );
           }
-          history.push("/");
+          history.push("/dashboard");
 
         } else {
           setMessage(r.msg)
