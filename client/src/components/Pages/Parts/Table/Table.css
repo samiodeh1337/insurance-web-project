@@ -6,6 +6,35 @@
      white-space: nowrap;
 } 
 
+.SEVERE{
+  background-color: rgba(250,223,223);
+  color: red ;
+  /* font-weight: bold; */
+}
+
+.HIGH{
+  background-color: rgba(251,237,236);
+  color: rgb(224,145,113); ;
+  /* font-weight: bold; */
+}
+
+.MID{
+  background-color: rgb(253,246,232);
+  color: rgb(236,200,117); 
+  /* font-weight: bold; */
+}
+
+.LOW{
+  background-color: rgb(229,229,229);
+  color: rgb(150,150,150); 
+  /* font-weight: bold; */
+}
+
+/* @media (min-width: 576px) */
+.modal-dialog {
+    max-width: 1000px;
+    margin: 1.75rem auto;
+}
 
 .modal-backdrop.show {
   opacity: 1;

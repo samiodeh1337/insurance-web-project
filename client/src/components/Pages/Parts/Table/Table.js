@@ -16,39 +16,10 @@ class Tablein extends Component {
     isOpen: false
   };
 
-  // // openModal = () => this.setState({ isOpen: true });
-  // closeModal = (status) => this.setState({ status: false });
-
-  // showModal = ()  => {
-  //   this.setState({ isOpen: true });
-  // }
-
-  // severity(UserRank) {
-  //   let severe=""
-  //   switch(UserRank) {
-  //     case 1:
-  //       severe="LOW"
-  //       return severe;
-  //     case 2:
-  //       severe="MEDIUM"
-  //       return severe;
-  //     case 3:
-  //       severe="HIGH"
-  //       return severe;
-  //     case 4:
-  //       severe="SEVERE"
-  //       return severe;
-  //     default:
-  //       return severe;
-  //   }
-  // }
-
   componentDidMount() {
     console.log(this.props.data);
   }
   calculatehandle = (id) => {
-
-
     let link = "";
     if (onServer() == true) {
       link = "https://insurance-web-project.herokuapp.com";
@@ -68,13 +39,10 @@ class Tablein extends Component {
         this.props.data_state(json);
         console.log(json);
       });
-
-
     console.log(id);
   }
 
   isReviewed(jsonItem) {
-    // eslint-disable-next-line no-unused-expressions
     let view
     (jsonItem.calculated === 1) ? view = (<button type="button" className="btn" onClick={() => this.setState({ ["isOpen" + jsonItem._id]: true })}><i className='bx bx-dots-horizontal-rounded' /></button>) :
       view = (<button type="button" onClick={() => { this.calculatehandle(jsonItem._id) }} className="btn btn-success">Calculate</button>)
@@ -85,7 +53,7 @@ class Tablein extends Component {
     let tableItems = this.props.data.map((jsonItem) =>
       <>
         <tr>
-          <td>{(jsonItem.severity)}</td>
+          <td><div className={jsonItem.severity}>{(jsonItem.severity)}</div></td>
           <td>{jsonItem.insuranceType}</td>
           <td>{jsonItem.FirstName} {jsonItem.LastName}</td>
           <td>{jsonItem.insuranceAmountRequested}$</td>
@@ -93,7 +61,7 @@ class Tablein extends Component {
           <td>{jsonItem.dateofEnblment}</td>
           <td>{this.isReviewed(jsonItem)}</td>
         </tr>
-        <Modal show={this.state["isOpen" + jsonItem._id]} onHide={() => this.setState({ ["isOpen" + jsonItem._id]: false })} className=" pt-3" data-aos="zoom-out" data-aos-duration="800" >
+        <Modal show={this.state["isOpen" + jsonItem._id]} onHide={() => this.setState({ ["isOpen" + jsonItem._id]: false })} className="pt-3 col-12 modal-dialog " data-aos="zoom-out" data-aos-duration="800" >
           <Modal.Body className=" rounded" data-aos="zoom-out" data-aos-duration="800" >
             <Modal.Header closeButton className="modalHead font-weight-bold closeIcon p-0 align-items-end align-self-end border-0 ">
             </Modal.Header>
@@ -117,7 +85,6 @@ class Tablein extends Component {
               </tr>
             </Table>
           </Modal.Body>
-
         </Modal>
       </>
     );
@@ -140,7 +107,6 @@ class Tablein extends Component {
             {tableItems}
           </tbody>
         </Table>
-
       </Container>
     );
   }
